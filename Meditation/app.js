@@ -35,10 +35,14 @@ const app = () => {
   timeSelect.forEach((option) => {
     option.addEventListener("click", function () {
       fakeDuration = this.getAttribute("data-time");
-      console.log(fakeDuration);
+
       timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
         fakeDuration % 60
       )}`;
+      song.pause();
+      song.currentTime = 0;
+      play.src = "./svg/play.svg";
+      video.pause();
     });
   });
 
